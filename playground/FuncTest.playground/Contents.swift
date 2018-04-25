@@ -3,10 +3,13 @@ import UIKit
 var str = "Hello, playground"
 
 //test func
-func greet( expression: String, name:String){
+// _ will not use the parameter name
+func greet(_ expression: String , name: String = "everyone!"){
     print(expression + " " + name)
 }
-greet(expression: "welcome !", name: " new man for swift!")
+greet("welcome !", name: " new man for swift!")
+//test default value,must at the tail?
+greet("HI")
 
 //test closure
 //defind a clouser and return it
@@ -57,3 +60,23 @@ print("be double!: ", someNumbers.map({ (number: Int) -> Int in return number * 
 print("only even!:", someNumbers.filter({ (number: Int) -> Bool in return number%2 == 0 }))
 print("total",someNumbers.reduce(0, { (total: Int,number: Int) -> Int in return total + number } ))
 print(someNumbers)
+
+//test flexalbe variable numbers
+func flexableNumbers(_ who: String, _ many: String...) {
+    print(who)
+    for some in many {
+        print(some)
+    }
+}
+flexableNumbers("Young man ", "apple","oringe","tomato")
+
+//function parameters
+// parameter is let const,can not be change!
+// who want some can be changed ,can create a new var
+func testParameters(one: String, two: String) {
+    //this will be a error!
+    //one = "i have changed!"
+    var newOne = one
+    newOne = "i have changed!"
+    print(newOne)
+}

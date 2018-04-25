@@ -8,9 +8,24 @@ class ClassTest{
     //Shape
     class Shape{
         var name: String
+        var point:Int
         
-        init(name:String) {
+        var level: Int {
+            get {
+                return max(1, point/10)
+            }
+            set {
+                point = level * 10
+            }
+        }
+        
+        init(name:String,point:Int) {
             self.name = name
+            self.point = point
+        }
+        
+        deinit {
+          print("will deinit!",self.name)
         }
     }
     
@@ -23,7 +38,7 @@ class ClassTest{
         init(height: Double, width: Double, name: String) {
             self.height = height
             self.width = width
-            super.init(name: name)
+            super.init(name: name,point:100)
         }
         
         func area() -> Double {
@@ -39,7 +54,7 @@ class ClassTest{
         init(height: Double, bottom: Double, name: String) {
             self.height = height
             self.bottom = bottom
-            super.init(name: name)
+            super.init(name: name,point:200)
         }
         
         func area() -> Double {
@@ -50,7 +65,7 @@ class ClassTest{
 
 var square = ClassTest.Rectangle(height: 100, width: 100, name: "I am a square!")
 var triangle = ClassTest.Triangle(height: 100, bottom: 100, name: "I am a triangle!")
-print("height: " , square.height, " Width: ", square.width, " Area:", square.area())
+print("height: " , square.height, " Width: ", square.width, " Area:", square.area(),"Level:",square.level,"point:",square.point)
 print(triangle.area())
 print("THe triangle's area is half of The Square")
 
@@ -60,6 +75,12 @@ if ( square === triangle) {
 }else{
     print(" Square is different from Triangle!")
 }
+
+//byRef,original value will be changed!
+var newSquare = square
+newSquare.width=10000
+print("square:",square.area())
+print("newSquare:",newSquare.area())
 
 
 

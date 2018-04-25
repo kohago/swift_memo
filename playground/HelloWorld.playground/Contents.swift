@@ -34,3 +34,28 @@ case 13...18:
 default:
     print(String(age) + " is a adult!")
 }
+
+//typealias
+typealias BodyStatus = (String,Double)
+var height: BodyStatus = ("身長：",123.4)
+var weight: BodyStatus = ("体重：",24.5)
+print(height)
+print(weight)
+
+
+/*
+ this is a comment
+ this is another comment
+ /*
+   this is a inner comment
+ */
+ */
+
+
+// if you don't use the varialbe,set it to _
+var count = 1
+for _ in 0...5 {
+    print("HI",count)
+}
+ 
+
