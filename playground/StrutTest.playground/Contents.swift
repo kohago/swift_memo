@@ -41,10 +41,16 @@ struct Book {
     func descript(){
         print("title:",title,"author:",author.descript())
     }
+    mutating func changeTitle(newTitle: String) {
+       self.title = newTitle
+    }
 }
 
-let book1 = Book( title: "1984", author: Author(name: "a better man", age:33))
+var book1 = Book( title: "1984", author: Author(name: "a better man", age:33))
 book1.descript()
-//can't change property of a const struct. Can do tha
+//can't change property of a const struct. Can do that in class
 //book1.title = "new title"
 //swift define String,Array,Dictionary with Struct,so they ar byValue
+//can do that when there is a mutating
+book1.changeTitle(newTitle: "There is a new title")
+print(book1.title)

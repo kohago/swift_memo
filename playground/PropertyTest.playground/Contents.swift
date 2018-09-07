@@ -12,7 +12,7 @@ class Hoge{
             print("will set name from \(self.name) to \(newValue)")
         }
         didSet {
-            print(" name settd from \(oldValue) to \(self.name)")
+            print("name settd from \(oldValue) to \(self.name)")
         }
     }
     init() {
